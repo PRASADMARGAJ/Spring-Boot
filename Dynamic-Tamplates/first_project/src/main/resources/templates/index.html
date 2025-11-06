@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>I am <span th:text="${name}"></span>.My heroic name is <span th:text ="${herioc_name}"></span></h3>
+
+
+    <h2>If Condition</h2>
+    <h3 th:if="${isHero}"> He is a hero.</h3>
+
+
+
+    <h2>If-Else Condition</h2>
+     <h3 th:if="${isHero}"> He is a hero.</h3>
+      <h3 th:unless="${isHero}"> He is not a hero.</h3>
+
+
+
+
+      <h2>Switch Case</h2>
+     <div th:switch="${herotype}">
+     <h2 th:case="'avenger'"> They fight for New york</h2>
+     <h2 th:case="'gurdian'"> They protect galaxy</h2>
+      <h2 th:case="'X_man'"> Always ignore</h2>
+       <h2 th:case="'*'"> Normal Human</h2>
+     </div>
+
+
+
+</body>
+</html>
