@@ -1,0 +1,38 @@
+package com.example.first_project.Controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class PageController {
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "logout";
+    }
+
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
+    @GetMapping("/AddToCart")
+    public String AddToCart() {
+        return "AddToCart";
+    }
+
+    @GetMapping("/Collection")
+    public String Collection() {
+        return "Collection";
+    }
+
+}

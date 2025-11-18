@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeless Watches</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div layout:fragment="content">
+
+  <!-- ================= HERO VIDEO SECTION ================= -->
+  <section class="video-hero position-relative">
+    <video autoplay muted loop playsinline class="hero-video w-100">
+      <source src="/video/Watch.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- <div class="video-overlay text-center position-absolute top-50 start-50 translate-middle text-white">
+      <h1>Timeless Craftsmanship</h1>
+      <p>Every second counts — experience the art of precision.</p>
+      <a href="@{/Collection}" class="btn btn-light mt-3">DISCOVER NOW</a>
+    </div> -->
+  </section>
+
+  <!-- ================= BESTSELLER PRODUCTS ================= -->
+  <section class="container py-5">
+    <div class="text-start mb-4">
+      <h2 class="section-title">Our Bestsellers</h2>
+      <p class="section-subtitle text-muted"># TIMELESS COLLECTION</p>
+    </div>
+
+    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- First Slide -->
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-6 col-md-3 mb-4">
+              <div class="product-card">
+                <img src="Images/watch1.jpg" alt="Titan Watch" class="img-fluid">
+                <div class="text-center mt-2">
+                  <div class="price">$29.00</div>
+                  <div class="name">Titan</div>
+                  <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+              <div class="product-card">
+                <img src="Images/watch2.jpg" alt="Fossil Watch" class="img-fluid">
+                <div class="text-center mt-2">
+                  <div class="price">$29.00</div>
+                  <div class="name">Fossil</div>
+                  <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+              <div class="product-card position-relative">
+                <div class="discount-label position-absolute top-0 start-0 bg-danger text-white px-2">-25%</div>
+                <img src="Images/watch3.jpg" alt="Citizen Watch" class="img-fluid">
+                <div class="text-center mt-2">
+                  <div class="price">$30.00 <span class="old-price text-muted text-decoration-line-through">$40.00</span></div>
+                  <div class="name">Citizen</div>
+                  <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+              <div class="product-card position-relative">
+                <div class="new-label position-absolute top-0 start-0 bg-success text-white px-2">New</div>
+                <img src="Images/watch4.jpg" alt="Rolex Watch" class="img-fluid">
+                <div class="text-center mt-2">
+                  <div class="price">$20.00</div>
+                  <div class="name">Rolex</div>
+                  <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Slide -->
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-6 col-md-3 mb-4">
+              <div class="product-card">
+                <img src="Images/watch5.jpg" alt="TAG Heuer Watch" class="img-fluid">
+                <div class="text-center mt-2">
+                  <div class="price">$29.00</div>
+                  <div class="name">TAG Heuer</div>
+                  <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+              <div class="product-card">
+                <img src="Images/watch6.jpg" alt="Seiko Watch" class="img-fluid">
+                <div class="text-center mt-2">
+                  <div class="price">$29.00</div>
+                  <div class="name">Seiko</div>
+                  <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+              <div class="product-card position-relative">
+                <div class="discount-label position-absolute top-0 start-0 bg-danger text-white px-2">-25%</div>
+                <img src="Images/watch7.jpg" alt="Patek Philippe Watch" class="img-fluid">
+                <div class="text-center mt-2">
+                  <div class="price">$30.00 <span class="old-price text-muted text-decoration-line-through">$40.00</span></div>
+                  <div class="name">Patek Philippe</div>
+                  <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+              <div class="product-card position-relative">
+                <div class="new-label position-absolute top-0 start-0 bg-success text-white px-2">New</div>
+                <img src="Images/watch8.avif" alt="Jaeger-LeCoultre Watch" class="img-fluid">
+                <div class="text-center mt-2">
+                  <div class="price">$20.00</div>
+                  <div class="name">Jaeger-LeCoultre</div>
+                  <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BANNER CAROUSEL ================= -->
+  <section class="container-fluid">
+    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active"><img src="Images/banner2.1.jpg" class="d-block w-100" alt="Banner 1"></div>
+        <div class="carousel-item"><img src="Images/banner2.2.jpg" class="d-block w-100" alt="Banner 2"></div>
+        <div class="carousel-item"><img src="Images/banner2.3.jpg" class="d-block w-100" alt="Banner 3"></div>
+        <div class="carousel-item"><img src="Images/banner2.4.jpg" class="d-block w-100" alt="Banner 4"></div>
+        <div class="carousel-item"><img src="Images/banner2.5.jpg" class="d-block w-100" alt="Banner 5"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEW COLLECTION ================= -->
+  <section class="container-fluid my-5">
+    <div id="collectionCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="row carousel-section align-items-center">
+            <div class="col-md-4 text-area">
+              <div class="new-collection text-uppercase fw-bold text-muted">New Collection</div>
+              <h1>Timeless Elegance — Newly Arrived.</h1>
+              <p>Crafted for Those Who Value Every Moment.</p>
+              <a th:href="@{/Collection}" class="btn btn-dark">EXPLORE MORE</a>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="mid-card">
+                <div class="discount-label bg-danger text-white px-2">-26%</div>
+                <img src="Images/watch9.webp" alt="Vacheron Constantin Watch" class="img-fluid">
+                <div class="text-center mt-2">
+                  <div class="price">$27.00 <span class="old-price text-muted text-decoration-line-through">$59.99</span></div>
+                  <div class="rating text-warning">★★★★★ 2947 reviews</div>
+                  <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 text-center">
+              <img src="Images/watch10.webp" class="img-fluid" alt="Collection Watch 2">
+              <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="row carousel-section align-items-center">
+            <div class="col-md-4 text-area">
+              <div class="new-collection text-uppercase fw-bold text-muted">New Collection</div>
+              <h1>Fresh Styles. New Vibes. Just Dropped.</h1>
+              <p>The Next Generation of Watches Awaits.</p>
+              <a th:href="@{/Collection}" class="btn btn-dark">EXPLORE MORE</a>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="mid-card">
+                <div class="discount-label bg-danger text-white px-2">-26%</div>
+                <img src="Images/watch11.webp" alt="A. Lange & Söhne Watch" class="img-fluid">
+                <div class="text-center mt-2">
+                  <div class="price">$27.00 <span class="old-price text-muted text-decoration-line-through">$59.99</span></div>
+                  <div class="rating text-warning">★★★★★ 2947 reviews</div>
+                  <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 text-center">
+              <img src="Images/watch12.webp" class="img-fluid" alt="Collection Watch 3">
+              <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MEN'S WATCHES ================= -->
+  <section class="container py-5">
+    <h2 class="section-title mb-4">Men’s Collection</h2>
+    <div class="row">
+      <div class="col-6 col-md-3 mb-4">
+        <div class="product-card">
+          <img src="Images/Matrix boy.jpg" alt="Matrix Watch" class="img-fluid">
+          <div class="text-center mt-2">
+            <div class="price">$29.00</div>
+            <div class="name">Matrix</div>
+            <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+        <div class="product-card">
+          <img src="Images/Timex boy.jpg" alt="Timex Watch" class="img-fluid">
+          <div class="text-center mt-2">
+            <div class="price">$29.00</div>
+            <div class="name">Timex</div>
+            <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+        <div class="product-card position-relative">
+          <div class="discount-label bg-danger text-white px-2">-25%</div>
+          <img src="Images/Stianla.jpg" alt="Stianla Watch" class="img-fluid">
+          <div class="text-center mt-2">
+            <div class="price">$30.00 <span class="old-price text-muted text-decoration-line-through">$40.00</span></div>
+            <div class="name">Citizen</div>
+            <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+        <div class="product-card position-relative">
+          <div class="new-label bg-success text-white px-2">New</div>
+          <img src="Images/fastrackboy2.webp" alt="Fastrack Watch" class="img-fluid">
+          <div class="text-center mt-2">
+            <div class="price">$20.00</div>
+            <div class="name">Fastrack</div>
+            <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WOMEN'S WATCHES ================= -->
+  <section class="container py-5">
+    <h2 class="section-title mb-4">Women’s Collection</h2>
+    <div class="row">
+      <div class="col-6 col-md-3 mb-4">
+        <div class="product-card">
+          <img src="Images/Titangirl.webp" alt="Titan Women's Watch" class="img-fluid">
+          <div class="text-center mt-2">
+            <div class="price">$30.00 <span class="old-price text-muted text-decoration-line-through">$40.00</span></div>
+            <div class="name">Titan</div>
+            <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+        <div class="product-card">
+          <img src="Images/Fastrackgirl.jpg" alt="Fastrack Women's Watch" class="img-fluid">
+          <div class="text-center mt-2">
+            <div class="price">$29.00</div>
+            <div class="name">Fastrack</div>
+            <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+        <div class="product-card position-relative">
+          <div class="discount-label bg-danger text-white px-2">-25%</div>
+          <img src="Images/Heliosgirl.jpg" alt="Helios Women's Watch" class="img-fluid">
+          <div class="text-center mt-2">
+            <div class="price">$20.00</div>
+            <div class="name">Helios</div>
+            <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+        <div class="product-card position-relative">
+          <div class="new-label bg-success text-white px-2">New</div>
+          <img src="Images/Analoguegirl.jpg" alt="Analogue Women's Watch" class="img-fluid">
+          <div class="text-center mt-2">
+            <div class="price">$20.00</div>
+            <div class="name">Analogue</div>
+            <button class="btn btn-outline-dark btn-sm mt-2" onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function addToCart() {
+    alert("Item added to cart!");
+  }
+</script>
+
+</body>
+</html> 

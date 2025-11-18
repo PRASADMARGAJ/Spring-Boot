@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Watchory</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* GLOBAL STYLES */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background-color: #fdfdfd;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #222;
+      font-weight: 600;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* HERO SECTION */
+    .about-hero {
+      position: relative;
+      background: linear-gradient(to right bottom, #f8f9fa, #e9ecef);
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .about-hero .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.6);
+      z-index: 1;
+    }
+
+    .about-hero .hero-text {
+      position: relative;
+      z-index: 2;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .about-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-hero p {
+      font-size: 1.3rem;
+      color: #555;
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+
+    /* ABOUT SECTION */
+    .about-section h2.heading {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+
+    .about-section p {
+      color: #555;
+    }
+
+    .about-section img {
+      transition: transform 0.4s ease;
+    }
+
+    .about-section img:hover {
+      transform: scale(1.05);
+    }
+
+    /* VALUES SECTION */
+    .values-section {
+      background: #f8f9fa;
+    }
+
+    .values-section .heading {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .value-box {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 1rem 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .value-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .value-box h3 {
+      margin-bottom: 1rem;
+      color: #007bff;
+    }
+
+    .value-box p {
+      color: #555;
+    }
+
+    /* RESPONSIVE ADJUSTMENTS */
+    @media (max-width: 768px) {
+      .about-hero h1 {
+        font-size: 2.2rem;
+      }
+      .about-hero p {
+        font-size: 1rem;
+      }
+      .about-section h2.heading {
+        font-size: 1.8rem;
+      }
+      .values-section .heading {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-hero {
+        height: 50vh;
+        padding: 0 1rem;
+      }
+      .about-hero h1 {
+        font-size: 1.8rem;
+      }
+      .about-hero p {
+        font-size: 0.95rem;
+      }
+      .value-box {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+<section class="about-hero">
+  <div class="overlay"></div>
+  <div class="hero-text">
+    <h1>About Watchory</h1>
+    <p>Crafting timeless elegance since 1995</p>
+  </div>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="about-section container py-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h2 class="heading">Who We Are</h2>
+      <p class="lead">
+        At Watchory, we believe every second tells a story.  
+        Our mission is to bring premium, luxurious, and precision-crafted watches
+        to those who appreciate craftsmanship, heritage, and innovation.
+      </p>
+      <p>
+        Founded in 1995, Watchory has grown into a trusted name for luxury timepieces,
+        offering exclusive collections sourced from the finest watchmakers around the world.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="/Images/2.jpg" class="img-fluid rounded shadow" alt="About Watchory">
+    </div>
+  </div>
+</section>
+
+<!-- VALUES SECTION -->
+<section class="values-section py-5">
+  <div class="container text-center">
+    <h2 class="heading mb-4">Our Core Values</h2>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="value-box">
+          <h3>Precision</h3>
+          <p>Every timepiece is crafted with meticulous attention to detail and engineering excellence.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="value-box">
+          <h3>Luxury</h3>
+          <p>We offer premium watches designed for those who appreciate elegance and refinement.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="value-box">
+          <h3>Trust</h3>
+          <p>With thousands of satisfied customers, we stand for quality and authenticity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

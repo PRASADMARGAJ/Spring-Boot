@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watchlist — Watchory</title>
+
+  <!-- Bootstrap & Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ================= STYLES ================= */
+    body { font-family: Arial, sans-serif; }
+
+    /* HERO SECTION */
+    .watchlist-hero {
+      background: url('https://images.unsplash.com/photo-1600180758895-bf4e78c5f582?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      color: rgb(124, 136, 235);
+      text-align: center;
+      padding: 80px 0 50px 0;
+    }
+    .watchlist-hero h1 { font-size: 2.8rem; font-weight: 700; }
+    .watchlist-hero p { font-size: 1.2rem; opacity: 0.9; }
+
+    /* WATCHLIST TABLE */
+    .watch-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* EMPTY WATCHLIST */
+    #emptyWatchlist i { color: #888; }
+    #emptyWatchlist h4 { color: #555; }
+
+    /* TABLE BUTTONS */
+    .btn-sm { padding: 0.25rem 0.5rem; }
+  </style>
+</head>
+<body>
+
+<!-- ================= WATCHLIST HERO ================= -->
+<section class="watchlist-hero">
+  <div class="container">
+    <h1 class="fw-bold">My Watchlist</h1>
+    <p>All the watches you've saved for later</p>
+  </div>
+</section>
+
+<!-- ================= WATCHLIST CONTENT ================= -->
+<section class="watchlist-section py-5">
+  <div class="container">
+
+    <!-- Watchlist Table -->
+    <div class="table-responsive">
+      <table class="table align-middle text-center">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Watch</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Remove</th>
+            <th scope="col">Move to Cart</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Table content will be dynamically added by JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Empty Watchlist Message -->
+    <div id="emptyWatchlist" class="text-center mt-5" style="display:none;">
+      <i class="fas fa-heart-broken fa-3x mb-3"></i>
+      <h4>Your watchlist is empty!</h4>
+      <a href="/" class="btn btn-dark mt-3">Browse Watches</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ================= DYNAMIC WATCHLIST SCRIPT ================= -->
+<script>
+ 
+
+  // Load watchlist and cart from LocalStorage
+  let watchlist = JSON.parse(localStorage.getItem("watchlist")) || sampleWatches;
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const watchlistTableBody = document.querySelector("tbody");
+  const emptyMessage = document.getElementById("emptyWatchlist");
+
+  // Render watchlist
+  function renderWatchlist() {
+    watchlistTableBody.innerHTML = "";
+
+    if (watchlist.length === 0) {
+      emptyMessage.style.display = "block";
+      return;
+    } else {
+      emptyMessage.style.display = "none";
+    }
+
+    watchlist.forEach(item => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td><img src="${item.image}" alt="${item.name}" class="watch-img"></td>
+        <td>${item.name}</td>
+        <td>₹${item.price.toLocaleString()}</td>
+        <td>
+          <button class="btn btn-outline-danger btn-sm" onclick="removeFromWatchlist(${item.id})">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-dark btn-sm" onclick="moveToCart(${item.id})">Add to Cart</button>
+        </td>
+      `;
+
+      watchlistTableBody.appendChild(row);
+    });
+  }
+
+  // Remove watch
+  function removeFromWatchlist(id) {
+    watchlist = watchlist.filter(item => item.id !== id);
+    localStorage.setItem("watchlist", JSON.stringify(watchlist));
+    renderWatchlist();
+  }
+
+  // Move to cart
+  function moveToCart(id) {
+    const item = watchlist.find(item => item.id === id);
+    if (item) {
+      cart.push(item);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      removeFromWatchlist(id);
+      alert(`${item.name} added to cart!`);
+    }
+  }
+
+  // Initial render
+  renderWatchlist();
+</script>
+
+</body>
+</html>

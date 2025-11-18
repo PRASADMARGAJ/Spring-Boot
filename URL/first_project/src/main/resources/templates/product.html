@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body></body>
+    <h3>This is a product page</h3>
+
+<h2>Product ID: <span th:text="${product_id}"></span></h2>
+
+<a th:href="@{/product/{id}(id=${product_id})}">Open same product again</a>
+
+</body>
+</html>

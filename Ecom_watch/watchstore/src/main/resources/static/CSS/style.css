@@ -1,0 +1,978 @@
+/* ------------------------------------------- */
+/* 1. ROOT VARIABLES & GLOBAL STYLES           */
+/* ------------------------------------------- */
+:root {
+  --primary-color: #A5805E;
+  --primary-hover: #8F6B4C;
+  --secondary-color: #1F2937;
+  --background-light: #FFFFFF;
+  --background-dark: #F9FAFB;
+  --text-color: #374151;
+  --muted-text: #6B7280;
+  --border-color: #E5E7EB;
+  --shadow-light: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+  --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+}
+
+/* Global styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: var(--text-color); background-color: var(--background-light); line-height: 1.6; }
+a { text-decoration: none; color: var(--primary-color); }
+a:hover { color: var(--primary-hover); }
+
+/* Primary Navbar */
+.navbar { background-color: var(--background-light); border-bottom: 1px solid var(--border-color); box-shadow: var(--shadow-light); padding: 10px 0; }
+.navbar-brand { font-size: 1.5rem; font-weight: 700; color: var(--secondary-color) !important; }
+.navbar-brand img { border-radius: 50%; object-fit: cover; }
+.navbar-nav .nav-link { color: var(--text-color); font-weight: 500; padding: 8px 12px; }
+.navbar-nav .nav-link:hover { color: var(--primary-color); }
+
+/* Secondary Navbar */
+.secondary-navbar { background-color: var(--secondary-color); padding: 10px 0; }
+.nav-list { list-style: none; display: flex; justify-content: center; gap: 30px; }
+.nav-list > li > a { color: var(--background-light); font-weight: 500; padding: 10px 0; display: block; }
+.nav-list > li > a:hover { color: var(--primary-color); }
+
+/* Dropdown / Mega Menu */
+.dropdown { position: relative; }
+.dropdown-list { 
+  position: absolute; top: 100%; left: 0; background-color: var(--background-light); 
+  border: 1px solid var(--border-color); box-shadow: var(--shadow-hover); padding: 15px; 
+  min-width: 250px; display: none; opacity: 0; transform: translateY(10px); transition: all 0.3s ease;
+  z-index: 100;
+}
+.dropdown:hover .dropdown-list { display: block; opacity: 1; transform: translateY(0); }
+.dropdown-list li { padding: 5px 0; }
+.dropdown-list a { color: var(--text-color); display: block; white-space: nowrap; }
+.dropdown-list a:hover { color: var(--primary-color); }
+.dropdown-list h3 { font-size: 1rem; font-weight: 700; color: var(--secondary-color); margin-top: 10px; border-bottom: 1px solid var(--border-color); padding-bottom: 5px; margin-bottom: 5px; }
+
+/* Mobile adjustments */
+@media (max-width: 991px) {
+  .navbar-nav { margin: 10px 0; }
+  .secondary-navbar { display: none; }
+}
+
+/* ------------------------------------------- */
+/* 3. HERO VIDEO SECTION                       */
+/* ------------------------------------------- */
+.video-hero {
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.video-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--background-light);
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.video-overlay h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.video-overlay p {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.btn-discover {
+    font-size: 1rem;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.btn-discover:hover {
+    background-color: var(--primary-hover);
+}
+
+@media (max-width: 768px) {
+    .video-overlay h1 {
+        font-size: 2.5rem;
+    }
+    .video-overlay p {
+        font-size: 1rem;
+    }
+}
+
+/* ------------------------------------------- */
+/* 4. PRODUCT CARDS & CAROUSELS (Bestsellers)  */
+/* ------------------------------------------- */
+
+.pdt, .bnr {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: var(--background-dark);
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.section-subtitle {
+    color: var(--primary-color);
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.product-card {
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card .text-center {
+    padding: 15px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card .price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.product-card .old-price {
+    font-size: 0.9rem;
+    color: var(--muted-text);
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+
+.product-card .name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.add-btn {
+    background-color: var(--secondary-color);
+    color: var(--background-light);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.add-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.discount-label, .new-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--background-light);
+    font-size: 0.75rem;
+    font-weight: 700;
+    z-index: 10;
+}
+
+.discount-label {
+    background-color: var(--discount-color);
+}
+
+.new-label {
+    background-color: var(--new-color);
+}
+
+/* Bootstrap Carousel Overrides (for product & banner) */
+.carousel-item .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 15px;
+}
+
+/* Mid-page Banners (Image Carousel) */
+#carouselExampleControls img {
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    #carouselExampleControls img {
+        max-height: 250px;
+    }
+}
+
+/* ------------------------------------------- */
+/* 5. AUTUMN BANNER CAROUSEL                   */
+/* ------------------------------------------- */
+
+.carousel-section {
+    align-items: center;
+    padding: 30px 0;
+}
+
+.text-area {
+    padding: 20px;
+}
+
+.new-collection {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.text-area h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.text-area p {
+    font-size: 1.1rem;
+    color: var(--muted-text);
+    margin-bottom: 25px;
+}
+
+.btn-explore {
+    background-color: var(--secondary-color);
+    color: var(--background-light);
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+.btn-explore:hover {
+    background-color: var(--primary-color);
+}
+
+.mid-card {
+    background-color: var(--background-light);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: var(--shadow-light);
+}
+
+.mid-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.mid-card .rating {
+    color: gold;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.image-area {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+}
+
+.image-area img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: var(--shadow-hover);
+}
+
+.image-area .add-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 250px;
+    padding: 10px;
+}
+
+@media (max-width: 991px) {
+    .carousel-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .text-area, .mid-card, .image-area {
+        margin-bottom: 20px;
+        max-width: none;
+        width: 100%;
+    }
+    .mid-card {
+        margin: 0 auto 20px auto;
+    }
+    .image-area .add-btn {
+        position: static;
+        transform: none;
+        margin-top: 15px;
+        width: auto;
+    }
+}
+
+/* ------------------------------------------- */
+/* 6. AUTH FORMS (LOGIN, REGISTER, LOGOUT)     */
+/* ------------------------------------------- */
+
+/* General Auth Layout */
+.container:has(main) { /* Targets the container wrapper for the forms */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 15px;
+    background-color: var(--background-dark);
+}
+
+aside.visual {
+    background-color: var(--background-light);
+    padding: 40px;
+    border-radius: 12px 0 0 12px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: var(--shadow-light);
+}
+
+aside.visual h1 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+aside.visual p {
+    color: var(--muted-text);
+    margin-top: 10px;
+}
+
+main section.card {
+    background-color: var(--background-light);
+    padding: 40px;
+    border-radius: 0 12px 12px 0;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: var(--shadow-light);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.brand .logo {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.brand h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--secondary-color);
+}
+
+.brand p {
+    font-size: 0.9rem;
+    color: var(--muted-text);
+    margin: 0;
+}
+
+/* Input Styles (Floating Labels) */
+.input {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: transparent;
+    transition: border-color 0.2s;
+}
+
+.input input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.input label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: var(--muted-text);
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+    background-color: var(--background-light);
+    padding: 0 4px;
+    font-size: 1rem;
+}
+
+.input input:focus + label,
+.input input:not(:placeholder-shown) + label,
+.input input.has-value + label {
+    top: 0;
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    transform: translateY(-50%);
+}
+
+/* Login specific */
+.meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.forgot {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.or {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 25px 0;
+    color: var(--muted-text);
+    font-size: 0.85rem;
+}
+
+.or div {
+    flex-grow: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.or span {
+    padding: 0 10px;
+}
+
+.socials {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.socials .btn-ghost {
+    flex-grow: 1;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-light);
+    color: var(--text-color);
+    padding: 10px 15px;
+    font-weight: 500;
+}
+
+.socials .btn-ghost:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.small {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--muted-text);
+}
+
+/* Logout Card */
+body:has(.fa-circle-check) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background-dark);
+}
+
+body:has(.fa-circle-check) .card {
+    max-width: 400px;
+    text-align: center;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-hover);
+}
+
+.fa-circle-check.icon {
+    font-size: 3rem;
+    color: var(--new-color);
+    margin-bottom: 15px;
+}
+
+body:has(.fa-circle-check) .card h1 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+body:has(.fa-circle-check) .card p {
+    color: var(--muted-text);
+    margin-bottom: 30px;
+}
+
+body:has(.fa-circle-check) .card div {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Responsive Auth Forms */
+@media (max-width: 768px) {
+    .container:has(main) {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+    aside.visual {
+        border-radius: 12px 12px 0 0;
+        max-width: 450px;
+    }
+    main section.card {
+        border-radius: 0 0 12px 12px;
+        max-width: 450px;
+    }
+    body:has(.fa-circle-check) .card {
+        margin: 20px;
+    }
+    
+    
+}
+
+
+/* ------------------------------------------- */
+/* 7. LUXURY WATCH LIST (Dynamic Data)         */
+/* ------------------------------------------- */
+
+.header {
+    text-align: center;
+    padding: 50px 0 30px 0;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.header p {
+    color: var(--muted-text);
+    font-size: 1.1rem;
+}
+
+.watch-card {
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s;
+}
+
+.watch-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.watch-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.watch-card .card-body {
+    padding: 15px;
+    text-align: center;
+}
+
+.watch-card h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+    min-height: 40px; /* To prevent layout shift for long names */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.watch-card p {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.btn-add {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-add:hover {
+    background-color: var(--primary-hover);
+}
+
+/* ------------------------------------------- */
+/* 8. SHOPPING CART POPUP                      */
+/* ------------------------------------------- */
+
+.cart-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color); /* Matches the main theme color */
+    color: var(--background-light);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-hover);
+    z-index: 1000;
+    transition: background-color 0.2s;
+}
+
+.cart-icon:hover {
+    background-color: var(--primary-hover);
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--discount-color); /* Red for visual urgency */
+    color: var(--background-light);
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50%;
+    padding: 3px 6px;
+    min-width: 20px; /* Ensures padding even for single digits */
+    text-align: center;
+}
+
+.cart-popup {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-hover);
+    z-index: 999;
+    padding: 15px;
+    display: none; /* Controlled by JavaScript */
+    flex-direction: column;
+}
+
+.cart-popup h2 {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+#cartItems {
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+    font-size: 0.9rem;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item span:first-child {
+    font-weight: 500;
+    max-width: 100px; /* Constraint name length */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cart-item span:nth-child(2) {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: var(--discount-color);
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.remove-btn:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 500px) {
+    .cart-popup {
+        bottom: 70px;
+        right: 10px;
+        left: 10px; /* Takes up most of the screen width */
+        width: auto;
+        max-height: 70vh;
+    }
+    .cart-icon {
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+/* ------------------------------------------- */
+/* . FOOTER SECTION                           */
+/* ------------------------------------------- */
+
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--background-light);
+    padding: 50px 0 20px 0;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 30px;
+}
+
+.footer h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Newsletter */
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    flex-grow: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--background-light);
+}
+
+.newsletter-form button {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Info & Contact Links */
+.footer-info ul, .footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-info li, .footer-contact li {
+    margin-bottom: 8px;
+}
+
+.footer-info a, .footer-contact a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s;
+    font-size: 0.95rem;
+}
+
+.footer-info a:hover, .footer-contact a:hover {
+    color: var(--primary-color);
+}
+
+/* Socials */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+.social-icons img:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 991px) {
+    .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+    .footer-newsletter {
+        margin-bottom: 20px;
+    }
+}
+
+/* Additional fix for font awesome icons not showing in social buttons */
+.fa-brands {
+    font-family: "Font Awesome 6 Brands" !important;
+}
+
+/* collection  */
+ .watch-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 10px;
+      transition: transform 0.2s;
+    }
+    .watch-card:hover {
+      transform: scale(1.05);
+    }
+    .watch-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .btn-add {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    .btn-add:hover {
+      background-color: #0056b3;
+    }
