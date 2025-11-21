@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scan Food Label</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+   
+<link href="/static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container py-5">
+    <h2 class="mb-4 text-center">Upload Food Label for Analysis</h2>
+
+    <div class="card p-4">
+        <input type="file" id="imageInput" class="form-control mb-3">
+        <button class="btn btn-primary w-100" onclick="uploadImage()">Scan Now</button>
+    </div>
+
+    <div class="mt-4" id="scanStatus"></div>
+</div>
+
+<script src="/static/JS/scan.js"></script>
+
+</body>
+</html>

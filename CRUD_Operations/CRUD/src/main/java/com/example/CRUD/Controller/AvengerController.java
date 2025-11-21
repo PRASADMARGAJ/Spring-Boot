@@ -1,6 +1,7 @@
 package com.example.CRUD.Controller;
 
 
+import org.springframework.data.repository.support.Repositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,14 +9,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.CRUD.Model.Avenger;
+import com.example.CRUD.Repository.RepositoryAvenger;
 
 
+@Controller
 public class AvengerController {
     
 
-    private final AvengerRepository repo;
+    private final RepositoryAvenger repo;
     
-    public AvengerController(AvengerRepository repo){
+    public AvengerController(RepositoryAvenger repo){
         this.repo = repo;
     }
 
@@ -41,7 +45,7 @@ public class AvengerController {
  
     @GetMapping("/update/{id}")
     public String updateAvenger(@PathVariable long id, Model model) {
-        // model.addAttribute("avenger", new Avenger());
+        
         Avenger avenger =repo.findById(id).orElse(new Avenger());
         model.addAttribute("avenger", avenger);
         return "update"; 
