@@ -25,8 +25,8 @@ public class PageController {
         return "scan";
     }
 
-      @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+    //   @GetMapping("/login")
+    // public String login() {
+    //     return "login";
+    // }
 }

@@ -1,0 +1,517 @@
+/* ------------------------------------------- */
+/* 1. ROOT VARIABLES & GLOBAL STYLES           */
+/* ------------------------------------------- */
+:root {
+  --primary-color: #A5805E;
+  --primary-hover: #8F6B4C;
+  --secondary-color: #1F2937;
+  --background-light: #FFFFFF;
+  --background-dark: #F9FAFB;
+  --text-color: #374151;
+  --muted-text: #6B7280;
+  --border-color: #E5E7EB;
+  --shadow-light: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+  --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+}
+
+/* Global styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: var(--text-color); background-color: var(--background-light); line-height: 1.6; }
+a { text-decoration: none; color: var(--primary-color); }
+a:hover { color: var(--primary-hover); }
+
+/* Primary Navbar */
+.navbar { background-color: var(--background-light); border-bottom: 1px solid var(--border-color); box-shadow: var(--shadow-light); padding: 10px 0; }
+.navbar-brand { font-size: 1.5rem; font-weight: 700; color: var(--secondary-color) !important; }
+.navbar-brand img { border-radius: 50%; object-fit: cover; }
+.navbar-nav .nav-link { color: var(--text-color); font-weight: 500; padding: 8px 12px; }
+.navbar-nav .nav-link:hover { color: var(--primary-color); }
+
+
+
+/* Mobile adjustments */
+@media (max-width: 991px) {
+  .navbar-nav { margin: 10px 0; }
+  
+}
+
+/* ------------------------------------------- */
+/* 3. HERO VIDEO SECTION                       */
+/* ------------------------------------------- */
+.video-hero {
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.video-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--background-light);
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.video-overlay h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.video-overlay p {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.btn-discover {
+    font-size: 1rem;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.btn-discover:hover {
+    background-color: var(--primary-hover);
+}
+
+@media (max-width: 768px) {
+    .video-overlay h1 {
+        font-size: 2.5rem;
+    }
+    .video-overlay p {
+        font-size: 1rem;
+    }
+}
+
+/* ------------------------------------------- */
+/* 4. PRODUCT CARDS & CAROUSELS (Bestsellers)  */
+/* ------------------------------------------- */
+
+.pdt, .bnr {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: var(--background-dark);
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.section-subtitle {
+    color: var(--primary-color);
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.product-card {
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card .text-center {
+    padding: 15px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card .price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.product-card .old-price {
+    font-size: 0.9rem;
+    color: var(--muted-text);
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+
+.product-card .name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.add-btn {
+    background-color: var(--secondary-color);
+    color: var(--background-light);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.add-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.discount-label, .new-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--background-light);
+    font-size: 0.75rem;
+    font-weight: 700;
+    z-index: 10;
+}
+
+.discount-label {
+    background-color: var(--discount-color);
+}
+
+.new-label {
+    background-color: var(--new-color);
+}
+
+/* Bootstrap Carousel Overrides (for product & banner) */
+.carousel-item .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 15px;
+}
+
+/* Mid-page Banners (Image Carousel) */
+#carouselExampleControls img {
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    #carouselExampleControls img {
+        max-height: 250px;
+    }
+}
+
+/* ------------------------------------------- */
+/* 5. AUTUMN BANNER CAROUSEL                   */
+/* ------------------------------------------- */
+
+.carousel-section {
+    align-items: center;
+    padding: 30px 0;
+}
+
+.text-area {
+    padding: 20px;
+}
+
+.new-collection {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.text-area h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.text-area p {
+    font-size: 1.1rem;
+    color: var(--muted-text);
+    margin-bottom: 25px;
+}
+
+.btn-explore {
+    background-color: var(--secondary-color);
+    color: var(--background-light);
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+.btn-explore:hover {
+    background-color: var(--primary-color);
+}
+
+.mid-card {
+    background-color: var(--background-light);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: var(--shadow-light);
+}
+
+.mid-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.mid-card .rating {
+    color: gold;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.image-area {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+}
+
+.image-area img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: var(--shadow-hover);
+}
+
+.image-area .add-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 250px;
+    padding: 10px;
+}
+
+@media (max-width: 991px) {
+    .carousel-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .text-area, .mid-card, .image-area {
+        margin-bottom: 20px;
+        max-width: none;
+        width: 100%;
+    }
+    .mid-card {
+        margin: 0 auto 20px auto;
+    }
+    .image-area .add-btn {
+        position: static;
+        transform: none;
+        margin-top: 15px;
+        width: auto;
+    }
+}
+
+
+/* ------------------------------------------- */
+/* . FOOTER SECTION                           */
+/* ------------------------------------------- */
+
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--background-light);
+    padding: 50px 0 20px 0;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 30px;
+}
+
+.footer h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Newsletter */
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    flex-grow: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--background-light);
+}
+
+.newsletter-form button {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Info & Contact Links */
+.footer-info ul, .footer-contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-info li, .footer-contact li {
+    margin-bottom: 8px;
+}
+
+.footer-info a, .footer-contact a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s;
+    font-size: 0.95rem;
+}
+
+.footer-info a:hover, .footer-contact a:hover {
+    color: var(--primary-color);
+}
+
+/* Socials */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+.social-icons img:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 991px) {
+    .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+    .footer-newsletter {
+        margin-bottom: 20px;
+    }
+}
+
+/* Additional fix for font awesome icons not showing in social buttons */
+.fa-brands {
+    font-family: "Font Awesome 6 Brands" !important;
+}
+
+/* collection  */
+ .watch-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 10px;
+      transition: transform 0.2s;
+    }
+    .watch-card:hover {
+      transform: scale(1.05);
+    }
+    .watch-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .btn-add {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    .btn-add:hover {
+      background-color: #0056b3;
+    }
