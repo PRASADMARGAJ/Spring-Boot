@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base}">
+<head>
+    <title> Watch Details</title>
+</head>
+
+<body>
+
+<section layout:fragment="content">
+
+    <div class="container watchdetails" >
+        <div class="row" th:each="p : ${watch}">
+            <!-- watch Image -->
+            <div class="col-sm-6" >
+                <span class="border border-danger">
+                    <img th:src="@{'/image/' +${p.id}}" 
+                         class="img-fluid rounded border border-primary" 
+                         alt="Watche">
+                </span>
+            </div>
+
+            <!-- watch Info -->
+            <div class="col-sm-6" >
+                <div class="container">
+                    <h1 class="jumbotron-heading text-center text-danger" th:text="${p.name}">Fastrack</h1>
+                    <p class="lead text-center" th:text="${p.smallDescription}">
+                        
+                    Time after time, this watch steals the spotlight. Tick tock goes the clock, wearing our hearts on our wrists. Watch love, don't pause. I've got the time of my life, all thanks to this watch.
+                    </p>
+
+                    <div class="text-center">
+                        <h4 class="font-weight-bold">
+                            <i class="fa-solid fa-indian-rupee-sign"></i><span th:text="${p.discountedPrice}"></span>
+                            <small class="fw-light rupee"><span th:text="${p.sellingPrice}"></span></small> 
+                            <small class="text-danger">(30% off)</small>
+                        </h4> 
+                        <a href="#" class="btn btn-info my-2 mr-2">Add to cart</a>
+                        <a href="#" class="btn btn-success my-2">Buy Now</a>
+                    </div>
+
+                    <div class="description mt-5">
+                        <h2 class="jumbotron-heading">Description</h2>
+                        <p th:text="${p.Description}">
+                            A watch is a portable timepiece, worn on the wrist as a wristwatch or carried in a pocket as a pocket watch, used to tell time and often considered a fashion accessory. Watches can be mechanical, powered by a wound spring, or quartz, powered by a battery-driven vibrating crystal. Features and specifications include the type of glass used, like mineral or sapphire crystal, and water resistance ratings. 
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>

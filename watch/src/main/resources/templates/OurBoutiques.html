@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Boutiques</title>
+   
+    <style>
+      /* =============== GLOBAL =============== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    text-align: center;
+}
+
+/* =============== BOUTIQUES SECTION =============== */
+.boutiques-section {
+    padding: 60px 0;
+}
+
+.boutiques-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #1c1c1c;
+}
+
+.boutiques-section p {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* =============== BOUTIQUE CARD =============== */
+.boutique-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.boutique-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+}
+
+.boutique-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* =============== CARD CONTENT =============== */
+.boutique-card h5 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    color: #1c1c1c;
+}
+
+.boutique-card p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.boutique-card i {
+    color: #6c757d;
+}
+
+.boutique-card a.btn {
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+.boutique-card a.btn:hover {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+    color: #fff;
+}
+
+/* =============== RESPONSIVE =============== */
+@media (max-width: 768px) {
+    .boutiques-section h2 {
+        font-size: 2rem;
+    }
+
+    .boutique-img {
+        height: 180px;
+    }
+}
+
+    </style>
+</head>
+ 
+
+<body>
+    <!-- ================= OUR BOUTIQUES SECTION ================= -->
+<section class="boutiques-section py-5">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Our Boutiques</h2>
+      <p class="text-muted">Visit our exclusive stores and experience luxury in person.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Boutique 1 -->
+      <div class="col-md-4">
+        <div class="boutique-card shadow-sm">
+          <img src="/Images/mumbai_location.webp" class="boutique-img" alt="Boutique 1">
+          <div class="p-3">
+            <h5 class="fw-bold">Mumbai Boutique</h5>
+            <p class="text-muted mb-1">
+              <i class="fa-solid fa-location-dot me-2"></i>High Street, Bandra West, Mumbai
+            </p>
+            <p class="text-muted mb-1">
+              <i class="fa-solid fa-phone me-2"></i>+91 98765 11111
+            </p>
+            <p class="text-muted mb-3">
+              <i class="fa-solid fa-clock me-2"></i>10:00 AM – 9:00 PM
+            </p>
+            <a href="https://maps.google.com" target="_blank" class="btn btn-outline-dark w-100">View on Map</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Boutique 2 -->
+      <div class="col-md-4">
+        <div class="boutique-card shadow-sm">
+          <img src="/Images/mumbai_location.webp" class="boutique-img" alt="Boutique 2">
+          <div class="p-3">
+            <h5 class="fw-bold">Delhi Boutique</h5>
+            <p class="text-muted mb-1">
+              <i class="fa-solid fa-location-dot me-2"></i>Connaught Place, New Delhi
+            </p>
+            <p class="text-muted mb-1">
+              <i class="fa-solid fa-phone me-2"></i>+91 98765 22222
+            </p>
+            <p class="text-muted mb-3">
+              <i class="fa-solid fa-clock me-2"></i>10:00 AM – 9:00 PM
+            </p>
+            <a href="https://maps.google.com" target="_blank" class="btn btn-outline-dark w-100">View on Map</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Boutique 3 -->
+      <div class="col-md-4">
+        <div class="boutique-card shadow-sm">
+          <img src="/Images/mumbai_location.webp" class="boutique-img" alt="Boutique 3">
+          <div class="p-3">
+            <h5 class="fw-bold">Bangalore Boutique</h5>
+            <p class="text-muted mb-1">
+              <i class="fa-solid fa-location-dot me-2"></i>MG Road, Bangalore
+            </p>
+            <p class="text-muted mb-1">
+              <i class="fa-solid fa-phone me-2"></i>+91 98765 33333
+            </p>
+            <p class="text-muted mb-3">
+              <i class="fa-solid fa-clock me-2"></i>10:00 AM – 9:00 PM
+            </p>
+            <a href="https://maps.google.com" target="_blank" class="btn btn-outline-dark w-100">View on Map</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
