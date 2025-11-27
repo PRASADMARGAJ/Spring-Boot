@@ -2,15 +2,19 @@ package com.example.watch.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.watch.model.Cart;
 import com.example.watch.repository.CartRepository;
-import com.example.watch.repository.WatchRepository;
 import com.example.watch.repository.UserRepository;
+import com.example.watch.repository.WatchRepository;
 
 @Controller
-@RequestMapping("//cart")
+@RequestMapping("/index/cart")
 public class CartController {
 
     private final CartRepository cartRepository;
@@ -18,8 +22,8 @@ public class CartController {
     private final WatchRepository watchRepository;
 
     public CartController(CartRepository cartRepository,
-                          UserRepository userRepository,
-                          WatchRepository watchRepository) {
+            UserRepository userRepository,
+            WatchRepository watchRepository) {
         this.cartRepository = cartRepository;
         this.userRepository = userRepository;
         this.watchRepository = watchRepository;
@@ -28,26 +32,26 @@ public class CartController {
     @GetMapping
     public String listCart(Model model) {
         model.addAttribute("cartItems", cartRepository.findAll());
-        return "/admin/cart/view_list";
+        return "/index/cart/view_list";
     }
 
     @GetMapping("/add")
     public String showAddForm(Model model) {
         model.addAttribute("cart", new Cart());
         model.addAttribute("users", userRepository.findAll());
-        model.addAttribute("watches", watchRepository.findAll());
-        return "/admin/cart/add_list";
+        model.addAttribute("watchs", watchRepository.findAll());
+        return "/index/cart/add_list";
     }
 
     @PostMapping("/add")
     public String addCart(@ModelAttribute Cart cart) {
         cartRepository.save(cart);
-        return "redirect:/admin/cart";
+        return "redirect:/index/cart";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteCartItem(@PathVariable Long id) {
         cartRepository.deleteById(id);
-        return "redirect:/admin/cart";
+        return "redirect:/index/cart";
     }
 }
